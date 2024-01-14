@@ -54,11 +54,9 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "—————————◉"
     buttons = [
         [
-            InlineKeyboardButton(text="𝑹𝑬𝑺𝑼𝑴𝑬", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𝑷𝑨𝑼𝑺𝑬", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="𝑹𝑬𝑷𝑳𝑨𝒀", callback_data=f"ADMIN Replay|{chat_id}"),
-            InlineKeyboardButton(text="𝑺𝑲𝑰𝑷", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="𝑺𝑻𝑶𝑷", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="ᎡᎬՏႮᎷᎬ", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="ᏢᎪႮՏᎬ", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="ᎬŃᎠ", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
             InlineKeyboardButton(
@@ -66,7 +64,8 @@ def stream_markup_timer(_, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="𝑪𝑳𝑶𝑺𝑬")],
+        [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/Mvhmed")],
+        [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
     ]
     return buttons
 
@@ -74,13 +73,12 @@ def stream_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(text="𝑹𝑬𝑺𝑼𝑴𝑬", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𝑷𝑨𝑼𝑺𝑬", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="𝑹𝑬𝑷𝑳𝑨𝒀", callback_data=f"ADMIN Replay|{chat_id}"),
-            InlineKeyboardButton(text="𝑺𝑲𝑰𝑷", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="𝑺𝑻𝑶𝑷", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="ᎡᎬՏႮᎷᎬ", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="ᏢᎪႮՏᎬ", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="ᎬŃᎠ", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="𝑪𝑳𝑶𝑺𝑬")],
+        [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/Mvhmed")],
+        [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
     ]
     return buttons
 
