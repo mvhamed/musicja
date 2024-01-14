@@ -22,7 +22,7 @@ async def strcall(client, message):
             else:
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
-            k +=20
+            k +=1
             text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم: {len(participants)}\n✔️"    
         await message.reply(f"{text}")
@@ -43,7 +43,7 @@ async def strcall(client, message):
             else:
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
-            k +=20
+            k +=1
             text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم : {len(participants)}\n✔️"    
         await message.reply(f"{text}")
