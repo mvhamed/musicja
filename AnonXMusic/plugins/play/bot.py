@@ -10,25 +10,24 @@ async def Italymusic(client: Client, message: Message):
     bot_username = me.username
     bot_name = me.first_name
     star = message.from_user.mention
-    button = InlineKeyboardButton("اضف البوت الي مجموعتك ⚡", url=f"https://t.me/{bot_username}?startgroup=true")
+    button = InlineKeyboardButton("✚ Add me to your Group", url=f"https://t.me/{bot_username}?startgroup=true")
     keyboard = InlineKeyboardMarkup([[button]])
     user_id = message.from_user.id
     chat_id = message.chat.id
     try:
         member = await client.get_chat_member(chat_id, user_id)
         if user_id == 5940413527:
-             rank = "مطور السورس"
+             rank = "**‹ مـالك الـسورس ›**"
         elif user_id == OWNER_ID:
-             rank = "صاحب البوت يمعلم ⇇ اهلا مطوري الغالي كلو تحت السيطره يمعلم🥹❤️‍🔥"
+             rank = "‹ مـالك الـبوت ›"
         elif member.status == 'creator':
-             rank = "وه مالك الجروب⇇ يمعلم دخولك رايق سبب حرايق🥹🦋"
+             rank = "**‹ مـالك الـبـار ›**"
         elif member.status == 'administrator':
-             rank = "مشرف الجروب⇇ ينهار ابيض كابيه شاي للمعلم هنا يبني 🥹❤️"
+             rank = "**‹ مـشـرف الـبـار ›**"
         else:
-             rank = "**لاسف انت عضو فقير🥺💔**"
+             rank = "**‹ لاسف انت عضو فقير ›**"
     except Exception as e:
         print(e)
-        rank = "مش عرفنلو مله ده😒"
+        rank = "مش عرفنلو مله ده"
     async for photo in client.get_chat_photos("me", limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""اتفضل يـ ⇇: {star} عوز اي🤍🦋\n**وانا بوت يمعلم واسمي ⇇ : {bot_name} 🥺🍓\n**رتبتك يمعلم ⇇ : {rank}""", reply_markup=keyboard)
-
+                    await message.reply_photo(photo.file_id,       caption=f"""Hi {star}. \n\nMy Name iS {bot_name}. \n\nA Strong Telegram Bot To Play Music & Video iN The Voice Chat.\n\nJust Add Me To Your Group And Send /help .""", reply_markup=keyboard)
