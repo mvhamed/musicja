@@ -12,7 +12,7 @@ from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError, Already
 AUDIO_FILE_PATH = "./AnonXMusic/assets/call.mp3"
 
 async def handle_group_call(client, chat_id):
-    try:
+    
         assistant = await group_assistant(Anon, chat_id)
         await assistant.join_group_call(chat_id, AudioPiped(AUDIO_FILE_PATH), stream_type=StreamType().pulse_stream)
         participants = await assistant.get_participants(chat_id)
