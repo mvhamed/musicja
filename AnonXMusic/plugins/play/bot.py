@@ -1,15 +1,15 @@
 import asyncio
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton 
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters, Client
 from AnonXMusic import app
 from config import OWNER_ID
 
-@app.on_message(filters.command(['✨بوت','بوت'], prefixes=""))
+@app.on_message(filters.command(['بوت'], prefixes=""))
 async def Italymusic(client: Client, message: Message):
     me = await client.get_me()
     bot_username = me.username
     bot_name = me.first_name
-    italy = message.from_user.mention
+    star = message.from_user.mention
     button = InlineKeyboardButton("اضف البوت الي مجموعتك ⚡", url=f"https://t.me/{bot_username}?startgroup=true")
     keyboard = InlineKeyboardMarkup([[button]])
     user_id = message.from_user.id
@@ -30,5 +30,5 @@ async def Italymusic(client: Client, message: Message):
         print(e)
         rank = "مش عرفنلو مله ده😒"
     async for photo in client.get_chat_photos("me", limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""اتفضل يـ ⇇: {italy} عوز اي🤍🦋\n**وانا بوت يمعلم واسمي ⇇ : {bot_name} 🥺🍓\n**رتبتك يمعلم ⇇ : {rank}""", reply_markup=keyboard)
+                    await message.reply_photo(photo.file_id,       caption=f"""اتفضل يـ ⇇: {star} عوز اي🤍🦋\n**وانا بوت يمعلم واسمي ⇇ : {bot_name} 🥺🍓\n**رتبتك يمعلم ⇇ : {rank}""", reply_markup=keyboard)
 
