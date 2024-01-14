@@ -26,7 +26,7 @@ async def strcall(client, message):
             text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم: {len(participants)}\n✔️"    
         await message.reply(f"{text}")
-        await asyncio.sleep(7)
+        await asyncio.sleep(20)
         await assistant.leave_group_call(message.chat.id)
     except NoActiveGroupCall:
         await message.reply(f"المكالمة مغلقة مسبقاً\n")
