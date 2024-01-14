@@ -3,13 +3,13 @@ from pyrogram import filters, Client
 import asyncio
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
-from AnonXMusic.core.call import Anon
+from AnonXMusic.core.call import Anony
 from AnonXMusic.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError)
 
 @app.on_message(filters.regex("مين في الكول"))
 async def strcall(client, message):
-    assistant = await group_assistant(Anon,message.chat.id)
+    assistant = await group_assistant(Anony,message.chat.id)
     try:
         await assistant.join_group_call(message.chat.id, AudioPiped("./AnonXMusic/assets/call.mp3"), stream_type=StreamType().pulse_stream)
         text="🔔 الاعضاء المتواجدين في الكول :\n\n"
