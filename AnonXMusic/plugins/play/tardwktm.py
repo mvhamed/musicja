@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import requests 
-from AnonX import app
+from AnonXMusic import app
 
 muted = []
 @app.on_message(filters.command("كتم", "") & filters.group)
