@@ -2,23 +2,23 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from AnonXMusic import app
 
-@app.on_message(filters.voice_chat_started)
-async def stcall(client: Client, message: Message): 
-      Startt = "تم بدأ محادثه صوتيه"
-      await message.reply_text(Startt)
+# vc on
+@app.on_message(filters.video_chat_started)
+async def zed(_, msg):
+       await msg.reply("تم بدأ محادثه صوتيه")
+# vc off
+@app.on_message(filters.video_chat_ended)
+async def zed2(_, msg):
+       await msg.reply("تم إغلاق المحادثه الصوتيه")
 
-@app.on_message(filters.voice_chat_ended)
-async def encall(client: Client, message: Message): 
-      Enddd = "تم إغلاق المحادثه الصوتيه"
-      await message.reply_text(Enddd)
-
-@app.on_message(filters.voice_chat_members_invited)
-async def zoharyy(client: Client, message: Message): 
+# invite members on vc
+@app.on_message(filters.video_chat_members_invited)
+async def zed3(app:app, message:Message):
            text = f"- قام {message.from_user.mention}\n - بدعوة : "
            x = 0
-           for user in message.voice_chat_members_invited.users:
+           for user in message.video_chat_members_invited.users:
              try:
-               text += f"[{user.first_name}](tg://user?id={user.id}) "
+               text += f"{user.first_name} "
                x += 1
              except Exception:
                pass
@@ -26,4 +26,3 @@ async def zoharyy(client: Client, message: Message):
              await message.reply(f"{text} ")
            except:
              pass
-
