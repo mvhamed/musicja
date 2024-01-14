@@ -10,7 +10,7 @@ from config import BANNED_USERS
 
 
 @app.on_message(
-    command(["/stop", "اسكت", "انهاء", "ايقاف"]) & ~BANNED_USERS
+    filters.command(["/stop", "اسكت", "انهاء", "ايقاف"]) & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def stop_music(cli, message: Message, _, chat_id):
