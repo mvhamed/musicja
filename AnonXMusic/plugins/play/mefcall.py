@@ -8,9 +8,6 @@ from AnonXMusic.core.call import Anony
 from AnonXMusic.utils.database import *
 from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError, AlreadyJoinedError
 
-@app.on_message(filters.regex("مين في الكول"))
-async def start_group_call(client, message):
-    await handle_group_call(client, message.chat.id)
 
 AUDIO_FILE_PATH = "./AnonXMusic/assets/call.mp3"
 
@@ -41,3 +38,6 @@ async def handle_group_call(client, chat_id):
     except AlreadyJoinedError:
 
         await handle_group_call(client, chat_id)
+@app.on_message(filters.regex("مين في الكول"))
+async def start_group_call(client, message):
+    await handle_group_call(client, message.chat.id)
