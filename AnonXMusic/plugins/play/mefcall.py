@@ -12,36 +12,36 @@ async def strcall(client, message):
     assistant = await group_assistant(Anony,message.chat.id)
     try:
         await assistant.join_group_call(message.chat.id, AudioPiped("./AnonXMusic/assets/call.mp3"), stream_type=StreamType().pulse_stream)
-        text="😎🥰 المجانين  المتواجدين في الكول :\n\n"
+        text="الناس الموجودين في المكالمة:\n\n"
         participants = await assistant.get_participants(message.chat.id)
         k =0
         for participant in participants:
             info = participant
             if info.muted == False:
-                mut="يتحدث 🗣"
+                mut="يتحدث 🕷️"
             else:
-                mut="ساكت 🔕"
+                mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
             k +=1
             text +=f"{k}➤{user.mention}➤{mut}\n"
-        text += f"\nعددهم : {len(participants)}\n✔️"    
+        text += f"\nعددهم: {len(participants)}\n✔️"    
         await message.reply(f"{text}")
         await asyncio.sleep(7)
         await assistant.leave_group_call(message.chat.id)
     except NoActiveGroupCall:
-        await message.reply(f"مجنون الكول مش مفتوح اصلااا\n😜")
+        await message.reply(f"المكالمة مغلقة مسبقاً\n")
     except TelegramServerError:
-        await message.reply(f"ارسل الامر تاني في مشكله في سيرفر التلجرام\n😜")
+        await message.reply(f"يرجى إعادة إرسال الأمر، هناك مشكلة في خادم التليجرام\n")
     except AlreadyJoinedError:
-        text="😎🥰 المجانين  المتواجدين في الكول:\n\n"
+        text="الناس الموجودين في المكالمة:\n\n"
         participants = await assistant.get_participants(message.chat.id)
         k =0
         for participant in participants:
             info = participant
             if info.muted == False:
-                mut="يتحدث 🗣"
+                mut="يتحدث 🕷️"
             else:
-                mut="ساكت 🔕"
+                mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
             k +=1
             text +=f"{k}➤{user.mention}➤{mut}\n"
