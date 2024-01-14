@@ -22,11 +22,11 @@ async def strcall(client, message):
             else:
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
-            k +=1
+            k +=20
             text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم: {len(participants)}\n✔️"    
         await message.reply(f"{text}")
-        await asyncio.sleep(20)
+        await asyncio.sleep(5)
         await assistant.leave_group_call(message.chat.id)
     except NoActiveGroupCall:
         await message.reply(f"المكالمة مغلقة مسبقاً\n")
@@ -43,7 +43,7 @@ async def strcall(client, message):
             else:
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
-            k +=1
+            k +=20
             text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم : {len(participants)}\n✔️"    
         await message.reply(f"{text}")
