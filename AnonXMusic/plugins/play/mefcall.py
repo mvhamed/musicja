@@ -1,17 +1,18 @@
 from pyrogram import filters, Client
-from AnonXMusic import app
+from AnonX import app
 import asyncio
 from pyrogram.types import VideoChatEnded
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
-from AnonXMusic.core.call import Anon
-from AnonXMusic.utils.database import *
+from AnonX.core.call import Anon
+from AnonX.utils.database import *
 from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError, AlreadyJoinedError
 
 
-AUDIO_FILE_PATH = "./AnonXMusic/assets/call.mp3"
+AUDIO_FILE_PATH = "./AnonX/assets/call.mp3"
 
-async def handle_group_call(client, chat_id):
+async def handle_group_call(client, chat_id)
+    try:
         assistant = await group_assistant(Anon, chat_id)
         await assistant.join_group_call(chat_id, AudioPiped(AUDIO_FILE_PATH), stream_type=StreamType().pulse_stream)
         participants = await assistant.get_participants(chat_id)
