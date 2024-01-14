@@ -34,7 +34,7 @@ from AnonXMusic.utils.inline.settings import (
     vote_mode_markup,
 )
 from AnonXMusic.utils.inline.start import private_panel
-from config import BANNED_USERS, OWNER_ID
+from config import BANNED_USERS, OWNER_ID, SUPPORT_CHANNEL, SUPPORT_CHAT
 
 
 @app.on_message(
@@ -65,7 +65,7 @@ async def settings_cb(client, CallbackQuery, _):
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
     )
-
+
 
 @app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
@@ -87,7 +87,6 @@ async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
         return await CallbackQuery.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons)
         )
-
 
 @app.on_callback_query(
     filters.regex(
