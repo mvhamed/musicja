@@ -23,7 +23,7 @@ async def strcall(client, message):
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
             k +=1
-            text +=f"{k}-{user.mention}.{mut}\n"
+            text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم: {len(participants)}\n✔️"    
         await message.reply(f"{text}")
         await asyncio.sleep(7)
@@ -44,6 +44,6 @@ async def strcall(client, message):
                 mut="ساكت 🕷️"
             user = await client.get_users(participant.user_id)
             k +=1
-            text +=f"{k}-{user.mention}.{mut}\n"
+            text +=f"{k}- {user.mention} {mut}\n"
         text += f"\nعددهم : {len(participants)}\n✔️"    
         await message.reply(f"{text}")
