@@ -13,7 +13,7 @@ async def zed2(_, msg):
 # invite members on vc
 @app.on_message(filters.video_chat_members_invited)
 async def zed3(app:app, message:Message):
-           text = f"<b>• الحلـو</b>{message.from_user.mention} <b>• يريـدك فـي المڪـالمـه</b> "
+           text = f"<b>• الحلـو </b>{message.from_user.mention} <b>• يريـدك فـي المڪـالمـه</b> "
            x = 0
            for user in message.video_chat_members_invited.users:
              try:
@@ -22,6 +22,6 @@ async def zed3(app:app, message:Message):
              except Exception:
                pass
            try:
-             await message.reply(f"{text} 😉")
+             await message.reply(f"{text} ")
            except:
              pass
