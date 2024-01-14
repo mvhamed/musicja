@@ -1,4 +1,3 @@
-
 import os
 import re
 import textwrap
@@ -21,9 +20,9 @@ def changeImageSize(maxWidth, maxHeight, image):
     return image.resize((newWidth, newHeight))
 
 
-async def get_thumb(videoid):
-    if os.path.isfile(f"cache/{videoid}.png"):
-        return f"cache/{videoid}.png"
+async def get_thumb(videoid, photo):
+    if os.path.isfile(f"cache/{photo}.png"):
+        return f"cache/{photo}.png"
 
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
@@ -59,18 +58,19 @@ async def get_thumb(videoid):
                     await f.close()
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
+        Shadow = Image.open(f"cache/{photo}")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(5))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
+        Xcenter = Shadow.width / 2
+        Ycenter = Shadow.height / 2
         x1 = Xcenter - 250
         y1 = Ycenter - 250
         x2 = Xcenter + 250
         y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
+        logo = Shadow.crop((x1, y1, x2, y2))
         logo.thumbnail((520, 520), Image.LANCZOS)
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
@@ -133,7 +133,7 @@ async def get_thumb(videoid):
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        background.save(f"cache/{videoid}.png")
-        return f"cache/{videoid}.png"
+        background.save(f"cache/{photo}.png")
+        return f"cache/{photo}.png"
     except Exception:
         return YOUTUBE_IMG_URL
