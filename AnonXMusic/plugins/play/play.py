@@ -23,13 +23,17 @@ from AnonXMusic.utils.inline import (
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
+from AnonXMusic.core.call import Anony
 
-@app.on_message(filters.command(["تشغيل","فيديو"], "")
-)
+
+
+
 @app.on_message(
     filters.command(
         [
             "play",
+            "شغل", 
+            "تشغيل", 
             "vplay",
             "cplay",
             "cvplay",
@@ -61,8 +65,8 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
+    user_id = message.from_user.id if message.from_user else "5940413527"
+    user_name = message.from_user.first_name if message.from_user else "None"
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
