@@ -58,7 +58,7 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id if message.from_user else "5593884330"
+    user_id = message.from_user.id if message.from_user else "5940413527"
     user_name = message.from_user.first_name if message.from_user else "None"
     tom_chat_user = message.chat.id
     tom_info = await app.get_chat(tom_chat_user)
