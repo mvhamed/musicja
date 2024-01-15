@@ -1,11 +1,11 @@
 import random
 import string
-
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
+from strings.filters import command
 from AnonXMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from AnonXMusic.core.call import Anony
 from AnonXMusic.utils import seconds_to_min, time_to_seconds
@@ -23,26 +23,17 @@ from AnonXMusic.utils.inline import (
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
-from AnonXMusic.core.call import Anony
 
 
-
-
-@app.on_message(
-    filters.command(
-        [
-            "play",
-            "شغل", 
-            "تشغيل", 
-            "vplay",
-            "cplay",
-            "cvplay",
+@app.on_message(command(["تشغيل",])
+    & filters.group
+    & ~BANNED_USERS
+)
+@app.on_message(filters.command(["play","vplay","cplay","cvplay",
             "playforce",
             "vplayforce",
             "cplayforce",
-            "cvplayforce",
-        ]
-    )
+            "cvplayforce",])
     & filters.group
     & ~BANNED_USERS
 )
@@ -65,8 +56,8 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id if message.from_user else "5940413527"
-    user_name = message.from_user.first_name if message.from_user else "None"
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
