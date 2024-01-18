@@ -55,8 +55,11 @@ async def iddd(client, message):
                 ],
             ]
         ),
-           )
     )
+
+
+
+iddof = []
 
 app.on_message(filters.command(["جمالي"])
     & filters.group
