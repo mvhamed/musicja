@@ -7,7 +7,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 #BiLaL
 
 
-@Client.on_message(
+@app.on_message(
     filters.command(["تعطيل الايدي", "قفل الايدي"], "")
     & filters.group
   
@@ -22,7 +22,7 @@ async def iddlock(client: Client, message):
    else:
       return await message.reply_text("عذرا  عزيزي هذا الامر للادمن الجروب فقط : 🚦")
 
-@Client.on_message(
+@app.on_message(
     filters.command(["فتح الايدي", "تفعيل الايدي"], "")
     & filters.group
   
@@ -35,7 +35,7 @@ async def iddopen(client: Client, message):
       iddof.remove(message.chat.id)
       return await message.reply_text("تم  تفعيل الايدي عزيزي : 🦸")
          
-@Client.on_message(filters.command(["ايدي"], ""))
+@app.on_message(filters.command(["ايدي"], ""))
 async def muid(client: Client, message):
        if message.chat.id in iddof:
          return await message.reply_text("**- تم تعطيل امر الايدي من قبل المشرفين**")
@@ -55,9 +55,6 @@ async def muid(client: Client, message):
                 [
                     InlineKeyboardButton(
                        first_name, user_id=user_id),                
-                ],[                
-                    InlineKeyboardButton(
-                        "ᥴ𝗁ꪀꪀᥱᥣ ᥱᥣꪀᘜ᥆᥆ꪔ ⌯", url=f"https://t.me/SOURCE_ELNGOM"),
                 ],
                 [    
                     InlineKeyboardButton(  
@@ -71,7 +68,7 @@ async def muid(client: Client, message):
 
 id = {}
 @app.on_callback_query(filters.regex("heart"))  
-async def heart(client, query: CallbackQuery):  
+async def heart(client, CallbackQuery):  
     callback_data = query.data.strip()  
     callback_request = callback_data.replace("heart", "")  
     username = int(callback_request)
@@ -86,9 +83,6 @@ async def heart(client, query: CallbackQuery):
                 [ 
                     InlineKeyboardButton(
                        usr.first_name, user_id=usr.id),   
-                ],[                       
-                    InlineKeyboardButton(
-                        "ᥴ𝗁ꪀꪀᥱᥣ ᥱᥣꪀᘜ᥆᥆ꪔ ⌯", url=f"https://t.me/SOURCE_ELNGOM"),
                 ],
                 [  
                     InlineKeyboardButton(  
