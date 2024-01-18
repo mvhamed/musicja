@@ -5,7 +5,6 @@ from AnonXMusic import app
 
 @app.on_message(filters.command(["/help", "الاوامر", "اوامر",": الاوامر :"], ""))
 async def starhelp(client: Client, message: Message):
-    if not message.chat.type == enums.ChatType.PRIVATE:
       if await joinch(message):
             return
     bot = await client.get_me()
