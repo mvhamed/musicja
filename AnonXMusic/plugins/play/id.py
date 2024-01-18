@@ -13,8 +13,8 @@ iddof = []
     & filters.group
 )
 async def iddlock(client, message):
-   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
-   if not chek.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+   get = await client.get_chat_member(message.chat.id, message.from_user.id)
+   if get.status in ["creator", "administrator"]:
       if message.chat.id in iddof:
         return await message.reply_text("تم معطل من قبل \n√")
       iddof.append(message.chat.id)
