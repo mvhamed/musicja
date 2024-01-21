@@ -31,7 +31,12 @@ class TeleAPI:
         return True
 
     async def get_link(self, message):
-        return message.link
+        if message.chat.username:
+            link = f"https://t.me/{message.chat.username}/{message.reply_to_message.message_id}"
+        else:
+            xf = str((message.chat.id))[4:]
+            link = f"https://t.me/c/{xf}/{message.reply_to_message.message_id}"
+        return link
 
     async def get_filename(self, file, audio: Union[bool, str] = None):
         try:
