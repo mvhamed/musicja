@@ -36,19 +36,11 @@ caesar_responses = [
 ]
 
 @app.on_message(filters.command(["بوت", "البوت"], ""), group=71135)
-async def caesar_bot(client, message):
-    global name
-    bot_username = (await app.get_me()).username
-    bar = random.choice(caesar_responses).format(name=name)
-    keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
-    ])
-
-    await message.reply_text(
-        text=f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**",
-        disable_web_page_preview=True,
-        reply_markup=keyboard
-    )
+async def bottttt(client: Client, message: Message):
+    bot_username = client.me.username
+    BOT_NAME = await get_bot_name(bot_username)
+    bar = random.choice(selections).format(BOT_NAME)
+    await message.reply_text(f"**[{bar}](https://t.me/{bot_username}?startgroup=True)**", disable_web_page_preview=True)
     
 #مقدم من القيصر صاحب العظمه @c_a_s_e_r_h                
 #قناه سورس القيصر صاحب العظمه  @COURSE_CAESAR
