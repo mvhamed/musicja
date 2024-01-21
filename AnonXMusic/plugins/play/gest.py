@@ -4,16 +4,7 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ChatPermissions
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from config import OWNER_ID
-from AnonXMusic.utils.database import (add_served_chat,
-                                       is_served_chat,
-                                       get_served_chats,
-                                       add_served_user,
-                                       get_served_users,
-                                       blacklisted_chats,
-                                       get_assistant, get_lang,
-                                       get_userss, is_on_off,
-                                       is_served_private_chat,
-                                       is_active_chat)
+
 
 
 @app.on_message(filters.command(["الغاء حظر"], "") & filters.group)
