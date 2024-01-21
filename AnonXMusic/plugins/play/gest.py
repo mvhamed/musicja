@@ -4,7 +4,7 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ChatPermissions
 from AnonXMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from config import OWNER_ID
-from AnonXMusic import SUDOERS as sudo
+from AnonXMusic import SUDOERS
 from AnonXMusic.utils.database import (add_served_chat,
                                        is_served_chat,
                                        get_served_chats,
