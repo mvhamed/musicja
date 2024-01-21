@@ -13,7 +13,7 @@ name = "جورجينا"
 
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_bot(client: Client, message):
-   NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
+   NAME = await client.anony(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
    BOT_NAME = NAME.text
    bot_username = client.me.username
    await set_bot_name(bot_username, BOT_NAME)
