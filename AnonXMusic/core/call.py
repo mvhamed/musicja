@@ -592,23 +592,10 @@ class Call(PyTgCalls):
         @self.three.on_stream_end()
         @self.four.on_stream_end()
         @self.five.on_stream_end()
-        async def participants_change_handler(client, update: Update):
-            if not isinstance(
-                update, JoinedGroupCallParticipant
-            ) and not isinstance(update, LeftGroupCallParticipant):
+        async def stream_end_handler1(client, update: Update):
+            if not isinstance(update, StreamAudioEnded):
                 return
-            try:
-              chat_id = update.chat_id
-              got = len(await client.get_participants(chat_id))
-              if got == 1:
-               await asyncio.sleep(120)
-               got = len(await client.get_participants(chat_id))
-               if got == 1:
-                 await self.stop_stream(chat_id)
-                 await app.send_message(chat_id, "لقد غادرت المكالمه الصوتيه لان لا يوجد احد  ❤️.")
-              return
-            except:
-               pass
+            await self.change_stream(client, update.chat_id)
                 
 
 Anony = Call()
