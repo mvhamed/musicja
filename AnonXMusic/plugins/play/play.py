@@ -36,7 +36,7 @@ from AnonXMusic.core.call import Anony
             "تشغيل",
             "شغل",
             "vplay",
-            "فديو",
+            "فيديو",
             "cplay",
             "cvplay",
             "playforce",
