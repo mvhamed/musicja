@@ -29,14 +29,22 @@ from config import BANNED_USERS, lyrical
 from AnonXMusic.core.call import Anony
 
 
-
-
 @app.on_message(
-    filters.command(["تشغيل","شغل","/play"], "")
-    & ~BANNED_USERS
-)
-@app.on_message(
-    filters.command(["فيد","فديو","/vplay"], "")
+    filters.command(
+        [
+            "play",
+            "تشغيل",
+            "شغل",
+            "vplay",
+            "فديو",
+            "cplay",
+            "cvplay",
+            "playforce",
+            "vplayforce",
+            "cplayforce",
+            "cvplayforce",
+        ],""
+    )
     & ~BANNED_USERS
 )
 @PlayWrapper
@@ -58,24 +66,8 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id if message.from_user else "5940413527"
+    user_id = message.from_user.id if message.from_user else "1121532100"
     user_name = message.from_user.first_name if message.from_user else "None"
-    tom_chat_user = message.chat.id
-    tom_info = await app.get_chat(tom_chat_user)
-    if tom_info.invite_link:
-        tom_link = tom_info.invite_link
-    else:
-        await message.reply("لا يمكن العثور على رابط الدعوة لهذه المجموعة/القناة.")
-        return
-    
-    for ahmed in assistants:
-        tom_c = await get_client(ahmed)
-        try:
-            await tom_c.join_chat(str(tom_link))
-            await message.reply("تم انضمام الحساب المساعد بنجاح")
-        except Exception as e:
-            print(f"حدث خطأ أثناء الانضمام: {str(e)}")
-
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
@@ -302,7 +294,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await Anony.stream_call(url)
+                await mody.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(_["black_9"])
                 return await app.send_message(
@@ -359,7 +351,7 @@ async def play_commnd(
                     _,
                     track_id,
                     user_id,
-                    "ف" if video else "a",
+                    "v" if video else "a",
                     "c" if channel else "g",
                     "f" if fplay else "d",
                 )
@@ -486,7 +478,6 @@ async def play_music(client, CallbackQuery, _):
             track_id,
             CallbackQuery.from_user.id,
             mode,
-            "ف" if video else "a",
             "c" if cplay == "c" else "g",
             "f" if fplay else "d",
         )
@@ -494,7 +485,7 @@ async def play_music(client, CallbackQuery, _):
             _["play_13"],
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    video = True if mode == "ف" else None
+    video = True if mode == "v" else None
     ffplay = True if fplay == "f" else None
     try:
         await stream(
@@ -516,8 +507,8 @@ async def play_music(client, CallbackQuery, _):
     return await mystic.delete()
 
 
-@app.on_callback_query(filters.regex("AnonymousAdmin") & ~BANNED_USERS)
-async def anonymous_check(client, CallbackQuery):
+@app.on_callback_query(filters.regex("modymousAdmin") & ~BANNED_USERS)
+async def modymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
             "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
@@ -527,7 +518,7 @@ async def anonymous_check(client, CallbackQuery):
         pass
 
 
-@app.on_callback_query(filters.regex("AnonyPlaylists") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("modyPlaylists") & ~BANNED_USERS)
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
@@ -559,7 +550,7 @@ async def play_playlists_command(client, CallbackQuery, _):
         _["play_2"].format(channel) if channel else _["play_1"]
     )
     videoid = lyrical.get(videoid)
-    video = True if mode == "ف" else None
+    video = True if mode == "v" else None
     ffplay = True if fplay == "f" else None
     spotify = True
     if ptype == "yt":
