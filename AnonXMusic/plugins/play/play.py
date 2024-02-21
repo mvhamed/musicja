@@ -6,22 +6,22 @@ from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from ZeMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from ZeMusic.core.call import Mody
-from ZeMusic.utils import seconds_to_min, time_to_seconds
-from ZeMusic.utils.channelplay import get_channeplayCB
-from ZeMusic.utils.decorators.language import languageCB
-from ZeMusic.utils.decorators.play import PlayWrapper
-from ZeMusic.utils.formatters import formats
-from ZeMusic.utils.inline import (
+from AnonXMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
+from AnonXMusic.core.call import Mody
+from AnonXMusic.utils import seconds_to_min, time_to_seconds
+from AnonXMusic.utils.channelplay import get_channeplayCB
+from AnonXMusic.utils.decorators.language import languageCB
+from AnonXMusic.utils.decorators.play import PlayWrapper
+from AnonXMusic.utils.formatters import formats
+from AnonXMusic.utils.inline import (
     botplaylist_markup,
     livestream_markup,
     playlist_markup,
     slider_markup,
     track_markup,
 )
-from ZeMusic.utils.logger import play_logs
-from ZeMusic.utils.stream.stream import stream
+from AnonXMusic.utils.logger import play_logs
+from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
 
