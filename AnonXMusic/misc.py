@@ -25,6 +25,7 @@ XCB = [
     ".",
     "com",
     ":",
+    "",
     "git",
     "heroku",
     "push",
