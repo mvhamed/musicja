@@ -6,27 +6,23 @@ from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AnonXMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from AnonXMusic.core.call import Anony
-from AnonXMusic.utils import seconds_to_min, time_to_seconds
-from AnonXMusic.utils.channelplay import get_channeplayCB
-from AnonXMusic.utils.database import get_client, is_active_chat, is_autoend
-from AnonXMusic.utils.decorators.language import languageCB
-from AnonXMusic.utils.decorators.play import PlayWrapper
-from AnonXMusic.core.userbot import assistants
-from AnonXMusic.utils.formatters import formats
-from AnonXMusic.utils.inline import (
+from ZeMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
+from ZeMusic.core.call import Mody
+from ZeMusic.utils import seconds_to_min, time_to_seconds
+from ZeMusic.utils.channelplay import get_channeplayCB
+from ZeMusic.utils.decorators.language import languageCB
+from ZeMusic.utils.decorators.play import PlayWrapper
+from ZeMusic.utils.formatters import formats
+from ZeMusic.utils.inline import (
     botplaylist_markup,
     livestream_markup,
     playlist_markup,
     slider_markup,
     track_markup,
 )
-
-from AnonXMusic.utils.logger import play_logs
-from AnonXMusic.utils.stream.stream import stream
+from ZeMusic.utils.logger import play_logs
+from ZeMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
-from AnonXMusic.core.call import Anony
 
 
 @app.on_message(
@@ -36,7 +32,7 @@ from AnonXMusic.core.call import Anony
             "تشغيل",
             "شغل",
             "vplay",
-            "فيديو",
+            "فديو",
             "cplay",
             "cvplay",
             "playforce",
@@ -66,7 +62,7 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id if message.from_user else "5940413527"
+    user_id = message.from_user.id if message.from_user else "1121532100"
     user_name = message.from_user.first_name if message.from_user else "None"
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
