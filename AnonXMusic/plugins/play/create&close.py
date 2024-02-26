@@ -10,7 +10,7 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from AnonXMusic.utils.database import *
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant, ChatAdminRequired
-from AnonXmusic import app , Userbot
+from AnonXMusic import app , Userbot
 
 async def get_group_call(
     client: Client, message: Message, err_msg: str = ""
