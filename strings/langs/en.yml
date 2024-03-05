@@ -174,8 +174,8 @@ queue_6 : "<b>🕚 ᴅᴜʀᴀᴛɪᴏɴ :</b> ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛ
 queue_7 : "\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
 queue_8 : "<b>{0} ᴘʟᴀʏᴇʀ</b>\n\n <b>sᴛʀᴇᴀᴍɪɴɢ :</b> {1}\n\n <b>Song Name :</b> {2}\n <b>Request By :</b> {3}\n{4}"
 
-stream_1 : "Starting Playing Now </b>\n\n<b>‣ Song Name :</b> <a href={0}>{1}</a>\n<b>Duration Time :</b> {2} \n<b>‣ Request By :</b> {3}"
-stream_2 : "Starting Playing Now </b>\n\n<b>Song Name :</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n<b>‣ Request By :</b> {0}"
+stream_1 : "Starting Playing Now </b>\n\n<b> Song Name :</b> <a href={0}>{1}</a>\n<b>Duration Time :</b> {2} \n<b> Request By :</b> {3}"
+stream_2 : "Starting Playing Now </b>\n\n<b>Song Name :</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n<b> Request By :</b> {0}"
 
 
 CLOSE_BUTTON  : "ᴄʟᴏsᴇ"
