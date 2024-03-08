@@ -57,12 +57,12 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="ᎡᎬՏႮᎷᎬ", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="ᏢᎪႮՏᎬ", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="ᎬŃᎠ", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", callback_data=f"https://t.me/KARIEZMANUM1"),
+            InlineKeyboardButton(text="ᏀᎡϴႮᏢ", callback_data=f"https://t.me/Karizm_Kk"),
         ],
         [
             
         ],
-        [InlineKeyboardButton("ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/KARIEZMANUM1")],
-        [InlineKeyboardButton("ᏀᎡϴႮᏢ", url=f"https://t.me/Karizm_Kk")],
         [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/mvhmed")],
         [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
     ]
