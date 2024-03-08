@@ -74,6 +74,8 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="ᎡᎬՏႮᎷᎬ", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="ᏢᎪႮՏᎬ", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="ᎬŃᎠ", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/Karizm_Kk"), InlineKeyboardButton(text="ᏀᎡϴႮᏢ", url=f"https://t.me/KARIEZMANUM1"),
+    
         ],
         [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/Mvhmed")],
         [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
