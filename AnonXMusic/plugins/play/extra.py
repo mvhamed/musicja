@@ -5,8 +5,6 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.filters import command
 
-from config import BOT_USERNAME as bn
-
 
 @Client.on_message(command(["اذاعه"]) & ~filters.edited)
 @sudo_users_only
