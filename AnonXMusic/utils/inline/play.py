@@ -62,7 +62,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             
         ],
-        [InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/KARIEZMANUM1"), InlineKeyboardButton(text="ᏀᎡϴႮᏢ", url=f"https://t.me/Karizm_Kk")],
+        [InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/KaRizZmaUP1"), InlineKeyboardButton(text="ᏀᎡϴႮᏢ", url=f"https://t.me/Karizm_Kk")],
         
         [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/mvhmed")],
         [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
@@ -79,7 +79,7 @@ def stream_markup(_, chat_id):
             
     
         ],
-        [InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/KARIEZMANUM1"), InlineKeyboardButton(text="ᏀᎡϴႮᏢ", url=f"https://t.me/Karizm_Kk")],
+        [InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"https://t.me/KaRizZmaUP1"), InlineKeyboardButton(text="ᏀᎡϴႮᏢ", url=f"https://t.me/Karizm_Kk")],
         [InlineKeyboardButton("𝙈𝙪𝙝𝙖𝙢𝙢𝙚𝙙 𝙆𝙝𝙖𝙡𝙞𝙙", url=f"https://t.me/Mvhmed")],
         [InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك ⚡️", url=f"https://t.me/Gor_Genabot?startgroup=True")],
     ]
