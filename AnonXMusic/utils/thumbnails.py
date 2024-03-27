@@ -18,15 +18,12 @@ def changeImageSize(maxWidth, maxHeight, image):
     heightRatio = maxHeight / image.size[1]
     newWidth = int(widthRatio * image.size[0])
     newHeight = int(heightRatio * image.size[1])
-    newImage = image.resize((newWidth, newHeight))
-    return newImage
+    return image.resize((newWidth, newHeight))
 
 
-ahmed = "https://telegra.ph/file/5ee75c8b81172a947c9eb.jpg"
-
-async def get_thumb(videoid, photo):
-    if os.path.isfile(f"{photo}.png"):
-        return f"{photo}.png"
+async def get_thumb(videoid):
+    if os.path.isfile(f"cache/{videoid}.png"):
+        return f"cache/{videoid}.png"
 
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
@@ -36,8 +33,6 @@ async def get_thumb(videoid, photo):
                 title = result["title"]
                 title = re.sub("\W+", " ", title)
                 title = title.title()
-                test = translator.translate(title, dest="en")
-                title = test.text
             except:
                 title = "Unsupported Title"
             try:
@@ -58,38 +53,37 @@ async def get_thumb(videoid, photo):
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
                     f = await aiofiles.open(
-                        f"thumb{videoid}.png", mode="wb"
+                        f"cache/thumb{videoid}.png", mode="wb"
                     )
                     await f.write(await resp.read())
                     await f.close()
 
-        youtube = Image.open(f"thumb{videoid}.png")
-        Mostafa = Image.open(f"{photo}")
+        youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(5))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        Xcenter = Mostafa.width / 2
-        Ycenter = Mostafa.height / 2
+        Xcenter = youtube.width / 2
+        Ycenter = youtube.height / 2
         x1 = Xcenter - 250
         y1 = Ycenter - 250
         x2 = Xcenter + 250
         y2 = Ycenter + 250
-        logo = Mostafa.crop((x1, y1, x2, y2))
+        logo = youtube.crop((x1, y1, x2, y2))
         logo.thumbnail((520, 520), Image.LANCZOS)
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("font2.ttf", 40)
-        font2 = ImageFont.truetype("font2.ttf", 70)
-        arial = ImageFont.truetype("font2.ttf", 30)
-        name_font = ImageFont.truetype("font.ttf", 30)
+        font = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 40)
+        font2 = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
             (600, 150),
-            "JAKOO PLAYING",
+            "JAKOO PlAYiNg",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
@@ -136,11 +130,10 @@ async def get_thumb(videoid, photo):
             font=arial,
         )
         try:
-            os.remove(f"{photo}")
-            os.remove(f"thumb{videoid}.png")
+            os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        background.save(f"{photo}.png")
-        return f"{photo}.png"
+        background.save(f"cache/{videoid}.png")
+        return f"cache/{videoid}.png"
     except Exception:
-        return ahmed
+        return YOUTUBE_IMG_URL
